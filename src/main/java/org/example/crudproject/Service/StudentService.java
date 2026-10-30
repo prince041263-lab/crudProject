@@ -1,10 +1,19 @@
 package org.example.crudproject.Service;
 
-import org.springframework.stereotype.Component;
+import org.example.crudproject.Entity.Students;
+import org.example.crudproject.Repository.StudentRepo;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class StudentService {
-    public Students CreateStudent(Students student){
+    StudentRepo studentRepo;
 
+    StudentService(StudentRepo studentRepo){
+        this.studentRepo = studentRepo;
+    }
+
+    public Students CreateStudent(Students studentReq){
+        Students studentreq = studentRepo.save(studentReq);
+        return studentreq;
     }
 }

@@ -1,4 +1,4 @@
-package org.example.crudproject.Service;
+package org.example.crudproject.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
