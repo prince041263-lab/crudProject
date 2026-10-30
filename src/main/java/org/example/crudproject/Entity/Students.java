@@ -1,12 +1,15 @@
 package org.example.crudproject.Entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Students {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
     private String name;
@@ -36,7 +39,7 @@ public class Students {
     }
 
     public void setAge(int age) {
-        this.age = age;
+        this.age = this.age;
     }
 
     public String getEmail() {
