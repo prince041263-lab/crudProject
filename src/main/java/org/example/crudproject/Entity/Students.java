@@ -17,6 +17,16 @@ public class Students {
     private String email;
     private int rollNo;
     private String Course;
+    private boolean deleted;
+    public boolean getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
+    }
+
+
 
     public Long getId() {
         return Id;
@@ -39,7 +49,7 @@ public class Students {
     }
 
     public void setAge(int age) {
-        this.age = this.age;
+        this.age = age;
     }
 
     public String getEmail() {

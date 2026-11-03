@@ -27,8 +27,8 @@ public class StudentController {
         return ResponseEntity.ok(CreatedStudent);
     }
 
-    @GetMapping("/get/{Id}")
-    public ResponseEntity<Students> ReadStudent(@PathVariable Long Id){
+    @GetMapping("/get")
+    public ResponseEntity<Students> ReadStudent(@RequestParam Long Id){
         Students  studentResp = studentService.getStudent(Id);
         if(studentResp == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         return ResponseEntity.ok(studentResp);
@@ -54,5 +54,12 @@ public class StudentController {
         if(!isdeleted) return ResponseEntity.notFound().build();
         return ResponseEntity.ok("Record deleted successfully");
 
+    }
+
+    @PatchMapping("/soft-delete/{id}")
+    public ResponseEntity<String> softDelete(@PathVariable Long id){
+        Boolean isdeleted = studentService.softDelete(id);
+        if(isdeleted == false) return ResponseEntity.notFound().build();
+        return ResponseEntity.ok("deleted successfully");
     }
 }
